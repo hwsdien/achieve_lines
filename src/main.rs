@@ -36,7 +36,7 @@ fn parse_args(args: &Vec<String>) -> (String, String, usize) {
 
     // n 参数必须输入
     if ! matches.opt_present("n") {
-        panic!("options error");
+        panic!("Options Format Error");
     } 
 
     let number = matches.opt_str("n");
@@ -47,7 +47,7 @@ fn parse_args(args: &Vec<String>) -> (String, String, usize) {
                     .ok()
                     .expect("Wrong Number"),
         None => {
-            panic!("Options Error");
+            panic!("Options Format Error");
         },
     };
 
@@ -55,7 +55,7 @@ fn parse_args(args: &Vec<String>) -> (String, String, usize) {
     let input_file = if !matches.free.is_empty() {
         matches.free[0].clone()
     } else {
-        panic!("Options Error");
+        panic!("Options Format Error");
     };
 
     (program, input_file, num)
@@ -97,7 +97,7 @@ fn generate_random_numbers(total: usize, lines: usize) -> Vec<usize> {
 }
 
 // 获取随机的行
-fn retrieve_lines(input_file: &str, number: usize, lines: usize) {
+fn achieve_lines(input_file: &str, number: usize, lines: usize) {
     let total = number + 1;
 
     // 生成随机的行号
@@ -151,10 +151,10 @@ fn main() {
     // println!("{:?}", number_of_lines);
 
     if number >= number_of_lines {
-        println!("number is too big");
+        println!("NUMBER is too big");
         return;
     }
 
-    retrieve_lines(&input_file, number, number_of_lines);
+    achieve_lines(&input_file, number, number_of_lines);
 }
 
